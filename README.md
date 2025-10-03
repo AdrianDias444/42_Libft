@@ -1,4 +1,4 @@
-# 42 Projects 🚀
+kk# 42 Projects 🚀
 
 Repository dedicated to 42 School projects.
 
@@ -10,12 +10,18 @@ My first C library - recreating standard libc functions.
 
 **Implemented functions:**
 
-- `ft_isalpha` - Checks if it's a letter
-- `ft_isdigit` - Checks if it's a digit
-- `ft_isalnum` - Checks if it's alphanumeric
-- `ft_isascii` - Checks if it's an ASCII character
-- `ft_isprint` - Checks if it's a printable character
-- `ft_strlen` - Calculates string length
+- **Character Type Functions:**
+  - `ft_isalpha` - Checks if it's a letter
+  - `ft_isdigit` - Checks if it's a digit
+  - `ft_isalnum` - Checks if it's alphanumeric
+  - `ft_isascii` - Checks if it's an ASCII character
+  - `ft_isprint` - Checks if it's a printable character
+
+- **String Manipulation Functions:**
+  - `ft_strlen` - Calculates string length
+
+- **Conversion Functions:**
+  - `ft_atoi` - Converts string to integer
 
 ## 🛠️ Technologies
 
@@ -38,7 +44,6 @@ My first C library - recreating standard libc functions.
 **Adrian Dias** - [AdrianDias444](https://github.com/AdrianDias444)
 
 - 42 School Student
-- [Intra profile](https://profile.intra.42.fr/users/yourUsername)
 
 ## 📜 License
 
