@@ -1,47 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: addias <addias@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/21 18:26:34 by addias            #+#    #+#             */
+/*   Created: 2025/10/26 10:05:57 by addias            #+#    #+#             */
 /*   Updated: 2025/10/26 17:04:51 by addias           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t size)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
+	char	*str;
 	size_t	i;
-	size_t	len_dst;
-	size_t	len_src;
 
 	i = 0;
-	len_dst = ft_strlen(dst);
-	len_src = ft_strlen(src);
-	if (size <= len_dst)
-		return (size + len_src);
-	while (src[i] && i + len_dst < (size - 1))
+	str = malloc(sizeof(char) * (len + 1));
+	if (!str)
+		return (NULL);
+	while (s[start] && i < (len - 1))
 	{
-		dst[len_dst + i] = src[i];
+		str[i] = s[start];
 		i++;
+		start++;
 	}
-	dst[i + len_dst] = '\0';
-	return (len_src + len_dst);
+	str[i] = '\0';
+	return (str);
 }
+
 // int main(int argc, char **argv)
 // {
 // 	if(argc == 4)
 // 	{
-// 		char *dst = argv[1];
+// 		char const *s = argv[1];
+// 		unsigned int start = (unsigned int)ft_atoi(argv[2]);
+// s1		size_t len = (size_t)ft_atoi(argv[3]);
 
-// 		const char *src = argv[2];
-// 		size_t size = (size_t)ft_atoi(argv[3]);
-
-// 		ft_strlcat(dst, src, size);
-// 		printf("FT_STRLCAT: %s", dst);
+// 		printf("%s", ft_substr(s, start, len));
 
 // 	}
 // }

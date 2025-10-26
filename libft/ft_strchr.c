@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: addias <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,18 +12,18 @@
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+char	*ft_strchr(const char *s, int c)
 {
 	size_t	i;
-	size_t	src_len;
 
-	src_len = ft_strlen(src);
 	i = 0;
-	while (src[i] && i < (size - 1) && size > 0)
+	while (s[i])
 	{
-		dst[i] = src[i];
+		if (s[i] == c)
+			return ((char *)s + i);
 		i++;
 	}
-	dst[i] = '\0';
-	return (src_len);
+	if (c == '\0')
+		return ((char *)s);
+	return (NULL);
 }

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: addias <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,18 +12,21 @@
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
 	size_t	i;
-	size_t	src_len;
 
-	src_len = ft_strlen(src);
 	i = 0;
-	while (src[i] && i < (size - 1) && size > 0)
-	{
-		dst[i] = src[i];
+	while (s1[i] && s2[i] && s1[i] == s2[i] && i < (n - 1))
 		i++;
-	}
-	dst[i] = '\0';
-	return (src_len);
+	if (n == 0)
+		return (0);
+	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }
+// int main(void)
+// {
+//  const char *s1 = "abcdefgh";
+//  const char *s2 = "abcdwxyz";
+//  printf("FT_STRNCMP: %d\n", ft_strncmp(s1, s2, 4));
+//  printf("   STRNCMP: %d", strncmp(s1, s2, 4));
+// }

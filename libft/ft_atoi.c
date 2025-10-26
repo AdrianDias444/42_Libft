@@ -1,40 +1,49 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: addias <addias@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/21 18:24:44 by addias            #+#    #+#             */
+/*   Updated: 2025/10/26 17:04:51 by addias           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-int ft_atoi(const char *nptr)
+int	ft_atoi(const char *nptr)
 {
-    int i = 0;
-    int signalCounter = 0;
-    int signalNegative = 0;
-    int numero = 0;
+	size_t	signal;
+	int		res;
+	int		neg;
 
-    while (nptr[i] == ' ' || (nptr[i] >= 7 && nptr[i] <= 13))
-        i++;
-
-    while (nptr[i] == '+' || nptr[i] == '-')
-    {
-        signalCounter++;
-        if(signalCounter > 1)
-            return (0);
-        if(nptr[i] == '-')
-            signalNegative = 1;
-        i++;
-    }
-
-    while (nptr[i] >= '0' && nptr[i] <= '9')
-    {
-        numero = numero * 10 + (nptr[i] - '0');
-        i++;
-    }
-    if (signalNegative == 1)
-        numero = numero * -1;
-    return (numero);
+	neg = 1;
+	signal = 0;
+	res = 0;
+	while (*nptr == ' ' || (*nptr >= '\a' && *nptr <= '\r'))
+		nptr++;
+	while (*nptr == '+' || *nptr == '-')
+	{
+		signal++;
+		if (signal > 1)
+			return (0);
+		if (*nptr == '-')
+			neg = -neg;
+		nptr++;
+	}
+	while (*nptr >= '0' && *nptr <= '9')
+	{
+		res = res * 10 + (*nptr - '0');
+		nptr++;
+	}
+	return (res * neg);
 }
 
-/*
-int main(void)
-{
-    char *str = "\n\v\f       -2178832ass1313";
-    printf("%d\n%d", atoi(str), ft_atoi(str));
+// int	main(void)
+// {
+// 	char	*str;
 
-}
-*/
+// 	str = "\t+-4562a 67  ";
+// 	printf("   ATOI: %d \nFT_ATOI: %d", atoi(str), ft_atoi(str));
+// }

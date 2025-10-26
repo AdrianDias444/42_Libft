@@ -1,47 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: addias <addias@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/21 18:26:34 by addias            #+#    #+#             */
+/*   Created: 2025/10/26 10:05:34 by addias            #+#    #+#             */
 /*   Updated: 2025/10/26 17:04:51 by addias           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t size)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
+	char	*str;
+	size_t	len_s1;
+	size_t	len_s2;
 	size_t	i;
-	size_t	len_dst;
-	size_t	len_src;
+	size_t	j;
 
+	len_s1 = ft_strlen(s1);
+	len_s2 = ft_strlen(s2);
+	str = malloc(sizeof(char) * (len_s1 + len_s2 + 1));
+	if (!str)
+		return (NULL);
 	i = 0;
-	len_dst = ft_strlen(dst);
-	len_src = ft_strlen(src);
-	if (size <= len_dst)
-		return (size + len_src);
-	while (src[i] && i + len_dst < (size - 1))
-	{
-		dst[len_dst + i] = src[i];
-		i++;
-	}
-	dst[i + len_dst] = '\0';
-	return (len_src + len_dst);
+	j = 0;
+	ft_memcpy(str, s1, len_s1);
+	ft_memcpy(str + len_s1, s2, len_s2);
+	str[len_s1 + len_s2] = '\0';
+	return (str);
 }
-// int main(int argc, char **argv)
+
+// int	main(int argc, char **argv)
 // {
-// 	if(argc == 4)
+// 	char const	*s1;
+// 	char const	*s2;
+
+// 	if (argc == 3)
 // 	{
-// 		char *dst = argv[1];
-
-// 		const char *src = argv[2];
-// 		size_t size = (size_t)ft_atoi(argv[3]);
-
-// 		ft_strlcat(dst, src, size);
-// 		printf("FT_STRLCAT: %s", dst);
-
+// 		s1 = argv[1];
+// 		s2 = argv[2];
+// 		printf("%s", ft_strjoin(s1, s2));
 // 	}
 // }
