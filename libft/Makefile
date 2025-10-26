@@ -1,3 +1,13 @@
+
+
+
+
+
+
+
+
+
+
 NAME = libft.a
 
 SOURCES = $(wildcard *.c)

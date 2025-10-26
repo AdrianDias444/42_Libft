@@ -6,7 +6,7 @@
 /*   By: addias <addias@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 15:38:11 by addias            #+#    #+#             */
-/*   Updated: 2025/10/26 17:04:51 by addias           ###   ########.fr       */
+/*   Updated: 2025/10/26 17:35:01 by addias           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,18 +31,18 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	return (dest);
 }
 
-// int	main(void)
-// {
-// 	char	src[] = "Hello world";
-// 	char	dest[10];
-// 	char	teste[10];
+int	main(void)
+{
+	char	src[] = "Hello world";
+	char	dest[10];
+	char	teste[10];
 
-// 	// int a = 200;
-// 	// int b = 10;
-// 	printf("Antes: src = %s, dest = %s\n\n", src, dest);
-// 	ft_memcpy(dest, src, 4);
-// 	memcpy(teste, src, 4);
-// 	printf("FT_MEMCPY: src = %s, dest = %s\n", src, dest);
-// 	printf("   MEMCPY: src = %s, dest = %s\n", src, teste);
-// 	return (0);
-// }
+	// int a = 200;
+	// int b = 10;
+	printf("Antes: src = %s, dest = %s\n\n", src, dest);
+	ft_memcpy(dest, src, 4);
+	memcpy(teste, src, 4);
+	printf("FT_MEMCPY: src = %s, dest = %s\n", src, dest);
+	printf("   MEMCPY: src = %s, dest = %s\n", src, teste);
+	return (0);
+}
