@@ -6,7 +6,7 @@
 /*   By: addias <addias@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 15:38:11 by addias            #+#    #+#             */
-/*   Updated: 2025/10/26 17:35:01 by addias           ###   ########.fr       */
+/*   Updated: 2025/10/27 15:02:36 by addias           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	return (dest);
 }
 
+/*
 int	main(void)
 {
 	char	src[] = "Hello world";
@@ -46,3 +47,4 @@ int	main(void)
 	printf("   MEMCPY: src = %s, dest = %s\n", src, teste);
 	return (0);
 }
+*/

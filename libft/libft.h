@@ -6,7 +6,7 @@
 /*   By: addias <addias@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/26 10:10:00 by addias            #+#    #+#             */
-/*   Updated: 2025/10/26 11:04:44 by addias           ###   ########.fr       */
+/*   Updated: 2025/10/28 15:42:02 by addias           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,5 @@ void	*ft_calloc(size_t nmemb, size_t size);
 char	*ft_strdup(const char *s);
 char	*ft_strtrim(char const *s1, char const *set);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
-
+char	**ft_split(char const *s, char c);
 #endif

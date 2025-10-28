@@ -1,31 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: addias <addias@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/26 17:04:51 by addias            #+#    #+#             */
-/*   Updated: 2025/10/26 17:24:18 by addias           ###   ########.fr       */
+/*   Created: 2025/10/28 16:25:47 by addias            #+#    #+#             */
+/*   Updated: 2025/10/28 17:58:14 by addias           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+char	*ft_itoa(int n)
 {
-	size_t	i;
-	size_t	src_len;
+	size_t len;
+	long nb = n;
+	char *str;
+	size_t i;
 
-	src_len = ft_strlen(src);
-	if (size == 0)
-		return (src_len);
-	i = 0;
-	while (src[i] && i < (size - 1) && size > 0)
+	len = 1;
+	while(nb > 9)
 	{
-		dst[i] = src[i];
-		i++;
+		nb = nb/10;
+		len++;
 	}
-	dst[i] = '\0';
-	return (src_len);
+	str = malloc(sizeof(char) * (len + 1));
+
+	i = len - 1;
+	while(i > 0)
+	{
+		str[i] = (n%10) + '0';
+		i--;
+	}
+	str[len] = '\0';
+	return(str);
+}
+
+int main()
+{
+
+	printf("%s", ft_itoa(111));
+	printf("\n");
 }
