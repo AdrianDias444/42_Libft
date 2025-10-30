@@ -9,6 +9,7 @@
         "editor.defaultFormatter": "keyhr.42-c-format"
     },
     "files.associations": {
-        "libft.h": "c"
+        "libft.h": "c",
+        "sstream": "c"
     }
 }

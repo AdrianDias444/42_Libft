@@ -6,7 +6,7 @@
 /*   By: addias <addias@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/26 10:05:57 by addias            #+#    #+#             */
-/*   Updated: 2025/10/27 15:57:42 by addias           ###   ########.fr       */
+/*   Updated: 2025/10/30 15:46:12 by addias           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,13 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	char	*str;
 	size_t	i;
 
-	if (!s)
+	if(!s)
 		return (NULL);
+	if(start >= ft_strlen(s))
+		return(ft_strdup(""));
+	if(ft_strlen(s) - start < len)
+		len = ft_strlen(s) - start;
 	i = 0;
-	if (ft_strlen(s) <= start)
-		return (ft_strdup(""));
 	str = malloc(sizeof(char) * (len + 1));
 	if (!str)
 		return (NULL);

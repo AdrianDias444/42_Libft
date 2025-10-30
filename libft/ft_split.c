@@ -6,70 +6,97 @@
 /*   By: addias <addias@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 17:44:03 by addias            #+#    #+#             */
-/*   Updated: 2025/10/29 13:57:18 by addias           ###   ########.fr       */
+/*   Updated: 2025/10/30 17:20:58 by addias           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+size_t	ft_count(char const *s, char c)
+{
+	size_t i;
+	size_t sep;
+
+	i = 0;
+	sep = 0;
+	while(s[i])
+	{
+		if(s[i] != c)
+			sep++;
+		i++;
+	}
+	return (sep);
+}
+
+size_t	ft_count_words(char const *s, char c)
+{
+	size_t i;
+	size_t j;
+	size_t words;
+
+	i = 0;
+	j = ft_strlen(s);
+	words = 1;
+	while(s[i] && i <= j)
+	{
+		if(s[i] == c)
+			words++;
+		while(s[i] == c && i < j)
+			i++;
+		i++;
+	}
+	if(s[0] == c)
+		words--;
+	if(s[ft_strlen(s) - 1] == c)
+		words--;
+	return(words);
+}
+
 
 char	**ft_split(char const *s, char c)
 {
 	size_t	i;
 	size_t	a;
 	size_t	j;
-	size_t	sep;
-	size_t	palavras;
+	size_t	start;
 	char	**str;
-	size_t	inicio;
 
 	i = 0;
 	a = 0;
-	j = 0;
-	sep = 0;
-	while (s[i])
-	{
-		if (s[i] == c)
-			sep++;
-		i++;
-	}
-	palavras = sep + 1;
-	str = malloc(sizeof(char *) * (palavras + 1));
+
+	str = malloc(sizeof(char *) * (ft_count_words(s, c) + 1));
 	if (!str)
 		return (NULL);
 	i = 0;
-	inicio = 0;
 	while (s[i])
 	{
 		if (s[i] == c)
+			i++;
+		else
 		{
+			start = i;
+
+			j = 0;
 			str[a] = malloc(j + 1);
 			if (!str)
 				return (NULL);
-			ft_strlcpy(str[a], &s[inicio], j + 1);
-			a++;
-			j = 0;
-			inicio = i + 1;
+			ft_strlcpy(str[a], &s[i], j + 1);
+
 		}
-		else
-			j++;
-		i++;
 	}
-	str[a] = malloc(j + 1);
-	if (!str)
-		return (NULL);
-	ft_strlcpy(str[a], &s[inicio], j + 1);
-	a++;
 	str[a] = NULL;
 	return (str);
 }
 
-// int main(int argc , char **argv)
-// {
-// 	if(argc == 3)
-// 	{
-// 		char **result = ft_split(argv[1], argv[2][0]);
+int main(/*int argc , char **argv*/)
+{
 
-// 		for(int i = 0; result[i] != NULL; i++)
-// 			printf("%s\n", result[i]);
-// 	}
-// }
+	char const *s = "    Hell oawo rld ";
+	char c = ' ';
+	char **result = ft_split(s, c);
+
+	for(int i = 0; result[i] != NULL; i++)
+		printf("%s\n", result[i]);
+
+	// printf("%zu", ft_count_words(s, c));
+}

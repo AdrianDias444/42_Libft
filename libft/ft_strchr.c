@@ -6,7 +6,7 @@
 /*   By: addias <addias@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/26 17:04:51 by addias            #+#    #+#             */
-/*   Updated: 2025/10/26 17:30:28 by addias           ###   ########.fr       */
+/*   Updated: 2025/10/30 15:59:00 by addias           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,13 @@
 char	*ft_strchr(const char *s, int c)
 {
 	size_t	i;
+	size_t	len_s;
 
+	len_s = ft_strlen(s);
 	i = 0;
-	while (i <= ft_strlen(s))
+	while (i <= len_s)
 	{
-		if (s[i] == c)
+		if (s[i] == (char)c)
 			return ((char *)s + i);
 		i++;
 	}
@@ -27,9 +29,11 @@ char	*ft_strchr(const char *s, int c)
 		return ((char *)s);
 	return (NULL);
 }
-// int main(void)
+// int main(int argc, char **argv)
 // {
-// 	const char *s = "Hello\0world";
+// 	const char *s = NULL;
 
-// 	printf("%s", ft_strchr(s, 0));
+// 	int c = argv[2][0];
+// 	//printf("FT_STRCHR: %s", ft_strchr(s,  c));
+// 	printf("\n   STRCHR: %s", strchr(s, c));
 // }
