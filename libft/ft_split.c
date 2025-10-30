@@ -1,102 +1,82 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_split.c                                         :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: addias <addias@student.42.fr>              +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/27 17:44:03 by addias            #+#    #+#             */
-/*   Updated: 2025/10/30 17:20:58 by addias           ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "libft.h"
 
-size_t	ft_count(char const *s, char c)
+
+
+size_t ft_word_count(char const *s, char c)
 {
 	size_t i;
-	size_t sep;
+	size_t new_word;
+	int words;
 
 	i = 0;
-	sep = 0;
+	new_word = 0;
+	words = 0;
 	while(s[i])
 	{
-		if(s[i] != c)
-			sep++;
-		i++;
-	}
-	return (sep);
-}
-
-size_t	ft_count_words(char const *s, char c)
-{
-	size_t i;
-	size_t j;
-	size_t words;
-
-	i = 0;
-	j = ft_strlen(s);
-	words = 1;
-	while(s[i] && i <= j)
-	{
-		if(s[i] == c)
+		if(s[i] != c && new_word == 0)
+		{
+			new_word = 1;
 			words++;
-		while(s[i] == c && i < j)
-			i++;
+		}
+		else if(s[i] == c)
+			new_word = 0;
 		i++;
 	}
-	if(s[0] == c)
-		words--;
-	if(s[ft_strlen(s) - 1] == c)
-		words--;
 	return(words);
 }
 
-
-char	**ft_split(char const *s, char c)
+int mem_count(const char *s, char c)
 {
-	size_t	i;
-	size_t	a;
-	size_t	j;
-	size_t	start;
-	char	**str;
+	int length;
 
+	length = 0;
+	while(s[length] && s[length] != c)
+	      length++;
+	return(length);	
+}
+
+char **ft_split(char const *s, char c)
+{
+	size_t i;
+	size_t a;
+	size_t len_a;
+	size_t word_count;
+	char **str;
+
+	word_count = ft_word_count(s, c);
 	i = 0;
 	a = 0;
-
-	str = malloc(sizeof(char *) * (ft_count_words(s, c) + 1));
-	if (!str)
-		return (NULL);
-	i = 0;
-	while (s[i])
+	str = malloc(sizeof(char *) * (word_count + 1));
+	if(!str)
+		return(NULL);
+	while(a < word_count)
 	{
-		if (s[i] == c)
+		while (s[i] && s[i] == c)
 			i++;
-		else
-		{
-			start = i;
+		len_a = mem_count(&s[i], c);
+		str[a] = malloc(sizeof(char) * (len_a + 1));
+		if(!str[a])
+			return(NULL);
+		ft_strlcpy(str[a], &s[i], len_a + 1);
 
-			j = 0;
-			str[a] = malloc(j + 1);
-			if (!str)
-				return (NULL);
-			ft_strlcpy(str[a], &s[i], j + 1);
-
-		}
+		i += len_a;
+		a++;
 	}
+
 	str[a] = NULL;
-	return (str);
+	return(str);
 }
 
-int main(/*int argc , char **argv*/)
+/*
+int main(int argc, char **argv)
 {
+    if (argc == 3)
+    {
+        char **result = ft_split(argv[1], argv[2][0]);
 
-	char const *s = "    Hell oawo rld ";
-	char c = ' ';
-	char **result = ft_split(s, c);
-
-	for(int i = 0; result[i] != NULL; i++)
-		printf("%s\n", result[i]);
-
-	// printf("%zu", ft_count_words(s, c));
+        for (int i = 0; result[i] != NULL; i++)
+            printf("%s\n", result[i]);
+    }
+    return 0;
 }
+*/
