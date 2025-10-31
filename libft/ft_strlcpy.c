@@ -6,7 +6,7 @@
 /*   By: addias <addias@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/26 17:04:51 by addias            #+#    #+#             */
-/*   Updated: 2025/10/26 17:24:18 by addias           ###   ########.fr       */
+/*   Updated: 2025/10/31 16:15:43 by addias           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 	size_t	i;
 	size_t	src_len;
 
-	src_len = ft_strlen(src);
+	src_len = strlen(src);
 	if (size == 0)
 		return (src_len);
 	i = 0;

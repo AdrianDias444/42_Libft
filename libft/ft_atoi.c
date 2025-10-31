@@ -6,7 +6,7 @@
 /*   By: addias <addias@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 18:24:44 by addias            #+#    #+#             */
-/*   Updated: 2025/10/30 16:08:17 by addias           ###   ########.fr       */
+/*   Updated: 2025/10/31 15:47:57 by addias           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,30 +14,30 @@
 
 int	ft_atoi(const char *nptr)
 {
-	int i = 0;
-	int negative = 0;
-	int signalCounter = 0;
-	int res = 0;
+	int	signal;
+	int	negativo;
+	int	res;
 
-	while (nptr[i] == ' ' || (nptr[i] >= 9 && nptr[i] <= 13))
-		i++;
-	while (nptr[i] == '+' || nptr[i] == '-')
+	signal = 0;
+	negativo = 1;
+	res = 0;
+	while (*nptr == ' ' || (*nptr >= 9 && *nptr <= 13))
+		nptr++;
+	while (*nptr == '+' || *nptr == '-')
 	{
-		if (nptr[i] == '-')
-			negative = 1;
-		signalCounter++;
-		if (signalCounter > 1)
+		signal++;
+		if (signal > 1)
 			return (0);
-		i++;
+		if (*nptr == '-')
+			negativo = -1;
+		nptr++;
 	}
-	while (nptr[i] >= '0' && nptr[i] <= '9')
+	while (*nptr >= '0' && *nptr <= '9')
 	{
-		res = res * 10 + (nptr[i] - '0');
-		i++;
+		res = res * 10 + (*nptr - '0');
+		nptr++;
 	}
-	if (negative == 1)
-		res = res * -1;
-	return (res);
+	return (res * negativo);
 }
 
 // int	main(void)
