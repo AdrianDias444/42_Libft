@@ -1,26 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: addias <addias@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/17 11:04:03 by addias            #+#    #+#             */
-/*   Updated: 2025/11/01 13:30:16 by addias           ###   ########.fr       */
+/*   Created: 2025/11/01 12:03:25 by addias            #+#    #+#             */
+/*   Updated: 2025/11/01 12:23:11 by addias           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isalpha(int c)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
-		return (1);
-	return (0);
-}
+	t_list	*new;
+	t_list	*first;
+	void	*new_content;
 
-// int main(void)
-// {
-// 	char c = 'l';
-// 	printf("%d", ft_isalpha(c));
-// }
+	first = NULL;
+	if (!lst || !del || !f)
+		return (NULL);
+	while (lst)
+	{
+		new_content = f(lst->content);
+		new = ft_lstnew(new_content);
+		if (!new)
+		{
+			del(new_content);
+			ft_lstclear(&first, del);
+			return (NULL);
+		}
+		ft_lstadd_back(&first, new);
+		lst = lst->next;
+	}
+	return (first);
+}

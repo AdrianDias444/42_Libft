@@ -6,7 +6,7 @@
 /*   By: addias <addias@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 11:06:33 by addias            #+#    #+#             */
-/*   Updated: 2025/10/26 17:04:51 by addias           ###   ########.fr       */
+/*   Updated: 2025/11/01 13:32:00 by addias           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,3 +18,8 @@ int	ft_isdigit(int c)
 		return (1);
 	return (0);
 }
+// int main(void)
+// {
+// 	char c = '\a';
+// 	printf("%d", ft_isdigit(c));
+// }
