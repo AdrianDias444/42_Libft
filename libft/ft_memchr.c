@@ -6,7 +6,7 @@
 /*   By: addias <addias@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 18:25:34 by addias            #+#    #+#             */
-/*   Updated: 2025/10/26 17:04:51 by addias           ###   ########.fr       */
+/*   Updated: 2025/11/01 15:23:59 by addias           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,17 +29,15 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	}
 	return (NULL);
 }
-// int	main(int argc, char **argv)
+// int	main(void)
 // {
 // 	size_t	n;
 // 	int		i;
 
-// 	if(argc == 4)
-// 	{
-// 		const void *s = argv[1];
-// 		i = ft_atoi(argv[2]);
-// 		n = (size_t)ft_atoi(argv[3]);
-// 		printf("FT_MEMCHR: %s\n", (char *)ft_memchr(s, i, n));
-// 		printf("   MEMCHR: %s", (char *)ft_memchr(s, i, n));
-// 	}
+// 	const void *s = "My own memchr test";
+// 	i = 32;
+// 	n = 5;
+// 	printf("FT_MEMCHR: %s\n", (char *)ft_memchr(s, i, n));
+// 	printf("   MEMCHR: %s", (char *)memchr(s, i, n));
+
 // }

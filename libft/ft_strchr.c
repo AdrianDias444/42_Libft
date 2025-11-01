@@ -6,7 +6,7 @@
 /*   By: addias <addias@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/26 17:04:51 by addias            #+#    #+#             */
-/*   Updated: 2025/10/30 15:59:00 by addias           ###   ########.fr       */
+/*   Updated: 2025/11/01 19:30:05 by addias           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,14 @@ char	*ft_strchr(const char *s, int c)
 		i++;
 	}
 	if (c == '\0')
-		return ((char *)s);
+		return ((char *)s + i);
 	return (NULL);
 }
-// int main(int argc, char **argv)
+// int main()
 // {
 // 	const char *s = NULL;
 
-// 	int c = argv[2][0];
+// 	int c = '\0';
 // 	//printf("FT_STRCHR: %s", ft_strchr(s,  c));
 // 	printf("\n   STRCHR: %s", strchr(s, c));
 // }

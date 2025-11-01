@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: addias <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: addias <addias@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/26 17:04:51 by addias            #+#    #+#             */
-/*   Updated: 2025/10/26 17:04:51 by addias           ###   ########.fr       */
+/*   Updated: 2025/11/01 16:26:10 by addias           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*ft_strdup(const char *s)
 {
-	int		i;
+	size_t	i;
 	char	*dest;
 
 	i = ft_strlen(s);
@@ -30,3 +30,18 @@ char	*ft_strdup(const char *s)
 	dest[i] = '\0';
 	return (dest);
 }
+
+// int	main(void)
+// {
+// 	char *src = "Hello, World!!!";
+// 	char *dest = ft_strdup(src);
+
+// 	if (!dest)
+// 	{
+// 		printf("Strdup failed!");
+// 		return (1);
+// 	}
+// 	printf("Original string: %s;\n", src);
+// 	printf("Copied string: %s;\n", dest);
+// 	free(dest);
+// }

@@ -6,7 +6,7 @@
 /*   By: addias <addias@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/26 10:05:57 by addias            #+#    #+#             */
-/*   Updated: 2025/10/30 15:46:12 by addias           ###   ########.fr       */
+/*   Updated: 2025/11/01 16:56:42 by addias           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,19 +31,17 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	return (str);
 }
 
-/*
-int	main(int argc, char **argv)
-{
-	char const		*s;
-	unsigned int	start;
-	size_t			len;
+// int	main(int argc, char **argv)
+// {
+// 	char const		*s;
+// 	unsigned int	start;
+// 	size_t			len;
 
-	if(argc == 4)
-	{
-		s = argv[1];
-		start = (unsigned int)ft_atoi(argv[2]);
-		len = (size_t)ft_atoi(argv[3]);
-		printf("%s", ft_substr(s, start, len));
-	}
-}
-*/
+// 	if(argc == 4)
+// 	{
+// 		s = argv[1];
+// 		start = (unsigned int)ft_atoi(argv[2]);
+// 		len = (size_t)ft_atoi(argv[3]);
+// 		printf("%s", ft_substr(s, start, len));
+// 	}
+// }

@@ -6,7 +6,7 @@
 /*   By: addias <addias@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 15:57:25 by addias            #+#    #+#             */
-/*   Updated: 2025/10/29 16:38:09 by addias           ###   ########.fr       */
+/*   Updated: 2025/11/01 18:30:59 by addias           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_putnbr_fd(int n, int fd)
 	long	nb;
 
 	nb = n;
-	if (n < 0)
+	if (nb < 0)
 	{
 		ft_putchar_fd('-', fd);
 		nb = -nb;
@@ -29,5 +29,5 @@ void	ft_putnbr_fd(int n, int fd)
 
 // int main(void)
 // {
-//     ft_putnbr_fd(-2313, 1);
+//     ft_putnbr_fd(-2147483648, 1);
 // }

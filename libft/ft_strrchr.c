@@ -6,7 +6,7 @@
 /*   By: addias <addias@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 18:27:25 by addias            #+#    #+#             */
-/*   Updated: 2025/10/30 15:58:52 by addias           ###   ########.fr       */
+/*   Updated: 2025/11/01 15:10:23 by addias           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ char	*ft_strrchr(const char *s, int c)
 
 // int	main(void)
 // {
-// 	const char	*s = NULL;
+// 	const char	*s = "ed     sdsdadc";
 
-// 	int c = 'e';
+// 	int c = '\0';
 // 	printf("FT_STRRCHR: %s\n", ft_strrchr(s, c));
 // 	printf("   STRRCHR: %s", strrchr(s, c));
 // }

@@ -6,7 +6,7 @@
 /*   By: addias <addias@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 15:45:52 by addias            #+#    #+#             */
-/*   Updated: 2025/10/29 15:56:32 by addias           ###   ########.fr       */
+/*   Updated: 2025/11/01 18:26:36 by addias           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,9 @@ void	ft_putendl_fd(char *s, int fd)
 	ft_putchar_fd('\n', fd);
 }
 
-// int main(int argc, char **argv)
+// int main(void)
 // {
-//     if(argc == 3)
-//     {
-//         char *s = argv[1];
-//         int fd = ft_atoi(argv[2]);
-
+//         char *s = "Hello my test for putend";
+//         int fd = 1;
 //         ft_putendl_fd(s, fd);
-//     }
 // }

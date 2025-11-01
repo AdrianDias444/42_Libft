@@ -6,13 +6,13 @@
 /*   By: addias <addias@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 16:25:47 by addias            #+#    #+#             */
-/*   Updated: 2025/10/29 14:27:54 by addias           ###   ########.fr       */
+/*   Updated: 2025/11/01 18:55:23 by addias           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_int_len(int n)
+static int	ft_int_len(int n)
 {
 	int		len;
 	long	nb;
@@ -65,8 +65,12 @@ char	*ft_itoa(int n)
 
 // int main()
 // {
+// 	int n = -623;
+// 	char *resultado = ft_itoa(n);
 
-// 	printf("%d\n", ft_int_len(-623));
-// 	printf("%s", ft_itoa(-623));
+// 	printf("%d\n", ft_int_len(n));
+// 	printf("%s", resultado);
 // 	printf("\n");
+
+// 	free(resultado);
 // }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: addias <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: addias <addias@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 15:58:43 by addias            #+#    #+#             */
-/*   Updated: 2025/10/27 16:11:44 by addias           ###   ########.fr       */
+/*   Updated: 2025/11/01 17:11:14 by addias           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,22 +17,20 @@ char	*ft_strtrim(char const *s1, char const *set)
 	size_t	start;
 	size_t	end;
 
+	if (!s1 || !set)
+		return (NULL);
 	start = 0;
 	end = ft_strlen(s1);
 	while (ft_strchr(set, s1[start]))
 		start++;
-	while (ft_strchr(set, s1[end]))
+	while (end > start && ft_strchr(set, s1[end]))
 		end--;
 	return (ft_substr(s1, start, (end - start) + 1));
 }
 
-/*
-int	main(int argc, char **argv)
-{
-	if(argc == 3)
-	{
-		char const *s1 = argv[1];
-		char const *set = argv[2];
-		printf("%s", ft_strtrim(s1, set));
-	}
-}*/
+// int	main(void)
+// {
+// 	char const *s1 = "aaa sdlkjas sdk a";
+// 	char const *set = "a";
+// 	printf("%s", ft_strtrim(s1, set));
+// }

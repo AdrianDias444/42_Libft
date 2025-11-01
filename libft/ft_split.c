@@ -6,13 +6,13 @@
 /*   By: addias <addias@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 13:13:57 by addias            #+#    #+#             */
-/*   Updated: 2025/11/01 08:50:52 by addias           ###   ########.fr       */
+/*   Updated: 2025/11/01 18:53:29 by addias           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_word_count(char const *s, char c)
+static size_t	ft_word_count(char const *s, char c)
 {
 	size_t	i;
 	size_t	new_word;
@@ -35,7 +35,7 @@ size_t	ft_word_count(char const *s, char c)
 	return (words);
 }
 
-size_t	mem_count(const char *s, char c)
+static size_t	mem_count(const char *s, char c)
 {
 	size_t	length;
 
@@ -45,7 +45,7 @@ size_t	mem_count(const char *s, char c)
 	return (length);
 }
 
-void	ft_free_all(char **str, size_t a)
+static void	ft_free_all(char **str, size_t a)
 {
 	size_t	i;
 
@@ -58,7 +58,7 @@ void	ft_free_all(char **str, size_t a)
 	free(str);
 }
 
-char	**ft_splitcpy(char const *s, char c, char **str)
+static char	**ft_splitcpy(char const *s, char c, char **str)
 {
 	size_t	a;
 	size_t	i;
@@ -101,9 +101,9 @@ char	**ft_split(char const *s, char c)
 	return (ft_splitcpy(s, c, str));
 }
 
-// int main()
+// int main(void)
 // {
-// 	char const *s = "hello!";
+// 	char const *s = "hello! dsaldas asdkm test for split";
 // 	char c = ' ';
 // 	size_t word_count = ft_word_count(s, c);
 // 	char **result = ft_split(s, c);
@@ -111,10 +111,4 @@ char	**ft_split(char const *s, char c)
 // 	for (int i = 0; result[i] != NULL; i++)
 // 		printf("%s\n", result[i]);
 // 	ft_free_all(result, word_count);
-// 	// char **arr = ft_split("test leak", ' ');
-// 	// if (arr)
-// 	// {
-// 	//     // Usar array...
-// 	//     ft_free_all(arr, 2);  // ← LIBERAR!
-// 	// }
 // }

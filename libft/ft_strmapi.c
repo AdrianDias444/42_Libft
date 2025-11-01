@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*   ft_strmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: addias <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: addias <addias@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 16:58:27 by addias            #+#    #+#             */
-/*   Updated: 2025/10/29 16:58:29 by addias           ###   ########.fr       */
+/*   Updated: 2025/11/01 18:43:38 by addias           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
 	size_t	i;
-	size_t	c;
 	char	*str;
 
+	if (!s || !f)
+		return (NULL);
 	i = 0;
-	c = 0;
 	str = malloc(sizeof(char) * (strlen(s) + 1));
 	if (!str)
 		return (NULL);
@@ -27,8 +27,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	{
 		while (s[i])
 		{
-			str[c] = f(i, s[i]);
-			c++;
+			str[i] = f(i, s[i]);
 			i++;
 		}
 		str[i] = '\0';
