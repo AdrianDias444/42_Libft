@@ -6,7 +6,7 @@
 /*   By: addias <addias@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 13:13:57 by addias            #+#    #+#             */
-/*   Updated: 2025/11/01 18:53:29 by addias           ###   ########.fr       */
+/*   Updated: 2025/11/03 14:17:21 by addias           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,9 +92,9 @@ char	**ft_split(char const *s, char c)
 	char	**str;
 	size_t	word_count;
 
-	word_count = ft_word_count(s, c);
 	if (!s)
 		return (NULL);
+	word_count = ft_word_count(s, c);
 	str = malloc(sizeof(char *) * (word_count + 1));
 	if (!str)
 		return (NULL);

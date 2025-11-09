@@ -1,49 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: addias <addias@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/26 10:05:34 by addias            #+#    #+#             */
-/*   Updated: 2025/11/01 16:58:51 by addias           ###   ########.fr       */
+/*   Created: 2025/10/26 10:05:57 by addias            #+#    #+#             */
+/*   Updated: 2025/11/03 14:14:36 by addias           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*str;
-	size_t	len_s1;
-	size_t	len_s2;
-	size_t	i;
-	size_t	j;
 
-	if (!s1 || !s2)
+	if (!s)
 		return (NULL);
-	len_s1 = ft_strlen(s1);
-	len_s2 = ft_strlen(s2);
-	str = malloc(sizeof(char) * (len_s1 + len_s2 + 1));
+	if (start >= ft_strlen(s))
+		return (ft_strdup(""));
+	if (ft_strlen(s) - start < len)
+		len = ft_strlen(s) - start;
+	str = malloc(sizeof(char) * (len + 1));
 	if (!str)
 		return (NULL);
-	i = 0;
-	j = 0;
-	ft_memcpy(str, s1, len_s1);
-	ft_memcpy(str + len_s1, s2, len_s2);
-	str[len_s1 + len_s2] = '\0';
+	ft_strlcpy(str, s + start, len + 1);
 	return (str);
 }
 
 // int	main(int argc, char **argv)
 // {
-// 	char const	*s1;
-// 	char const	*s2;
+// 	char const		*s;
+// 	unsigned int	start;
+// 	size_t			len;
 
-// 	if (argc == 3)
+// 	if(argc == 4)
 // 	{
-// 		s1 = argv[1];
-// 		s2 = argv[2];
-// 		printf("%s", ft_strjoin(s1, s2));
+// 		s = argv[1];
+// 		start = (unsigned int)ft_atoi(argv[2]);
+// 		len = (size_t)ft_atoi(argv[3]);
+// 		printf("%s", ft_substr(s, start, len));
 // 	}
 // }
